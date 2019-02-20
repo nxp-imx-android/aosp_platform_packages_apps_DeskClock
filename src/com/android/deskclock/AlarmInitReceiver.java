@@ -25,7 +25,6 @@ import android.os.PowerManager.WakeLock;
 import com.android.deskclock.alarms.AlarmStateManager;
 import com.android.deskclock.controller.Controller;
 import com.android.deskclock.data.DataModel;
-import com.android.deskclock.DeskClockNotificationChannelsUtil;
 
 public class AlarmInitReceiver extends BroadcastReceiver {
 
@@ -67,7 +66,6 @@ public class AlarmInitReceiver extends BroadcastReceiver {
             DataModel.getDataModel().updateAfterReboot();
             // Stopwatch and timer data need to be updated on time change so the reboot
             // functionality works as expected.
-            DeskClockNotificationChannelsUtil.createDefaultChannel(context);
         } else if (Intent.ACTION_TIME_CHANGED.equals(action)) {
             DataModel.getDataModel().updateAfterTimeSet();
         }
